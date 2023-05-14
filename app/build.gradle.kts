@@ -1,3 +1,5 @@
+import com.github.goutarouh.gradlepluginsample.buildsrc.BundleReleaseFilesTask
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -44,6 +46,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+tasks.register<BundleReleaseFilesTask>("bundleReleaseFiles") {
+    rootProject.set(File("."))
+    appVersion.set("1.00.00")
+    outputDirectory.set(File("build/outputs"))
 }
 
 dependencies {
